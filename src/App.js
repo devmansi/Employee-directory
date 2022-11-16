@@ -14,15 +14,6 @@ export default function App() {
     Designation: [],
   });
 
-  let filteredItemData = data.filter((item) => {
-    return (
-      item.first_name.includes(filteredItem) ||
-      item.first_name.toLowerCase().includes(filteredItem) ||
-      item.last_name.toLowerCase().includes(filteredItem) ||
-      item.last_name.includes(filteredItem)
-    );
-  });
-
   let filteredData = [...data];
 
   filteredDataFunc();
@@ -38,6 +29,15 @@ export default function App() {
       }
     }
   }
+
+  let filteredItemData = filteredData.filter((item) => {
+    return (
+      item.first_name.includes(filteredItem) ||
+      item.first_name.toLowerCase().includes(filteredItem) ||
+      item.last_name.toLowerCase().includes(filteredItem) ||
+      item.last_name.includes(filteredItem)
+    );
+  });
 
   React.useEffect(() => {
     function reqListener() {
