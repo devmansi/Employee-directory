@@ -5,7 +5,7 @@ export default function Filter({ data, setFilteringSubject }) {
   let addressArray = [];
   let designationArray = [];
 
-  data.map((item) => {
+  data.forEach((item) => {
     if (item.address) {
       addressArray.push(item.address);
     }
@@ -23,7 +23,7 @@ export default function Filter({ data, setFilteringSubject }) {
   ];
 
   function add(name) {
-    filteringArray.map((itemArray) => {
+    filteringArray.forEach((itemArray) => {
       if (!itemArray[1].includes(name)) {
         return;
       }
@@ -39,7 +39,7 @@ export default function Filter({ data, setFilteringSubject }) {
   }
 
   function remove(name) {
-    filteringArray.map((itemArray) => {
+    filteringArray.forEach((itemArray) => {
       if (!itemArray[1].includes(name)) {
         return;
       }
