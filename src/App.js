@@ -5,7 +5,6 @@ import Input from "./components/Input";
 import EmployeesTable from "./components/EmployeeTable";
 import EmployeeDetails from "./components/EmployeeDetail";
 import Filter from "./components/Filter";
-import Nav from "./components/Nav";
 
 export default function App() {
   const [filteredItem, setFilteredItem] = React.useState();
@@ -77,7 +76,6 @@ export default function App() {
           path="/employees/:id"
           element={data.length > 0 && <EmployeeDetails data={filteredData} />}
         />
-        <Route path="./nav" element={<Nav />} />
       </Routes>
     </>
   );
