@@ -15,6 +15,7 @@ export default function Input({ setFilteredItem }) {
           className="input"
           onChange={handleSearch}
           value={string}
+          placeholder="search with Firstname or Lsastname"
         />
       </div>
     </>
