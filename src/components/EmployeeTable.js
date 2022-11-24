@@ -9,9 +9,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import NoResult from "./NoResult";
 
-export default function EmployeesTable({ filteredItemData, filteredData }) {
-  const rows =
-    (filteredItemData.length > 0 && filteredItemData) || filteredData;
+export default function EmployeesTable({ filteredData }) {
+  const rows = filteredData;
   
   return (
       <TableContainer component={Paper}>

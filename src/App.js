@@ -9,7 +9,7 @@ import EmployeeHierarchy from "./components/EmployeeHierarchy";
 import Filter from "./components/Filter";
 
 export default function App () {
-  const [filteredItem, setFilteredItem] = React.useState();
+  const [filteredItem, setFilteredItem] = React.useState('');
   const [data, setData] = React.useState([]);
   const [filteringSubject, setFilteringSubject] = React.useState({
     Address: [],
@@ -20,6 +20,9 @@ export default function App () {
 
   filteredDataFunc();
 
+  /**
+   * Filtering using filters.
+   */
   function filteredDataFunc() {
     for (const [key, value] of Object.entries(filteringSubject)) {
       if (value.length === 0) {
@@ -32,7 +35,10 @@ export default function App () {
     }
   }
 
-  let filteredItemData = filteredData.filter((item) => {
+  /**
+   * Further filtering using typed string.
+   */
+  filteredData = filteredData.filter((item) => {
     return (
       item.first_name.includes(filteredItem) ||
       item.first_name.toLowerCase().includes(filteredItem) ||
@@ -69,7 +75,6 @@ export default function App () {
                 <div className="table-container">
                   <Filter data={data} setFilteringSubject={setFilteringSubject} />
                   <EmployeesTable
-                    filteredItemData={filteredItemData}
                     filteredData={filteredData}
                   />
                 </div>
