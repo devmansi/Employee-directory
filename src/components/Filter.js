@@ -56,7 +56,7 @@ export default function Filter({ data, setFilteringSubject }) {
   }
 
   return (
-    <div className="filter">
+    <div>
       {filteringArray.map((itemArray) => {
         return (
           <div key={itemArray[0]}>

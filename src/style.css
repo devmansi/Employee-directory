@@ -9,8 +9,18 @@
   padding: 0;
   box-sizing: inherit;
 }
+
+
 body {
   background-color: #eee;
+}
+
+h1 {
+  margin: 10px 30px;
+}
+
+main {
+  margin: 30px;
 }
 
 tbody tr:nth-of-type(odd) {
@@ -27,7 +37,7 @@ tbody tr:nth-of-type(odd) {
   display: block;
   padding: 1rem 2.4rem;
   font-size: 1.4rem;
-  border: 0.2px solid #eee;
+  border: 1px solid #c3bdbd;
   border-radius: 40px;
 }
 
@@ -36,14 +46,10 @@ tbody tr:nth-of-type(odd) {
   text-align: center;
 }
 
-.container {
+.table-container {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
-}
-
-.filter {
-  margin: 0 30px;
 }
 
 .filterItem {

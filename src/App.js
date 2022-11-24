@@ -2,11 +2,13 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Input from "./components/Input";
+import NavBar from "./components/NavBar";
 import EmployeesTable from "./components/EmployeeTable";
 import EmployeeDetails from "./components/EmployeeDetail";
+import EmployeeHierarchy from "./components/EmployeeHierarchy";
 import Filter from "./components/Filter";
 
-export default function App() {
+export default function App () {
   const [filteredItem, setFilteredItem] = React.useState();
   const [data, setData] = React.useState([]);
   const [filteringSubject, setFilteringSubject] = React.useState({
@@ -55,27 +57,50 @@ export default function App() {
 
   return (
     <>
+      <NavBar/>
       <Routes>
         <Route
           path="/employees"
           element={
             <>
-              <Input setFilteredItem={setFilteredItem} />
-              <div className="container">
-                <Filter data={data} setFilteringSubject={setFilteringSubject} />
-                <EmployeesTable
-                  filteredItemData={filteredItemData}
-                  filteredData={filteredData}
-                />
-              </div>
+              <h1>Employee Table</h1>
+              <main>
+                <Input setFilteredItem={setFilteredItem} />
+                <div className="table-container">
+                  <Filter data={data} setFilteringSubject={setFilteringSubject} />
+                  <EmployeesTable
+                    filteredItemData={filteredItemData}
+                    filteredData={filteredData}
+                  />
+                </div>
+              </main>
             </>
           }
         />
-        <Route path="*" element={<Navigate to="/employees" replace />} />
         <Route
           path="/employees/:id"
-          element={data.length > 0 && <EmployeeDetails data={filteredData} />}
+          element={data.length > 0 && (
+            <>
+              <h1>Employee Details</h1>
+              <main>
+                <EmployeeDetails data={data} />
+              </main>
+            </>
+          )
+        }
         />
+        <Route
+          path="/employees-hierarchy"
+          element={data.length > 0 && (
+            <>
+            <h1>Employee Hierarchy</h1>
+            <main>
+              <EmployeeHierarchy data={data} />
+            </main>
+          </>
+          )}
+        />        
+        <Route path="*" element={<Navigate to="/employees" replace />} />
       </Routes>
     </>
   );
