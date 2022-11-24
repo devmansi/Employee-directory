@@ -36,7 +36,7 @@ function Navbar() {
             <CssBaseline />
             <Toolbar>
                 <Typography variant="h4" className={classes.logo}>
-                    Navbar
+                    Employees Directory
                 </Typography>
                 <div className={classes.navlinks}>
                     <Link to="/employees" className={classes.link}>
