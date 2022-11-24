@@ -1,7 +1,7 @@
 import React from "react";
 import TreeView from '@mui/lab/TreeView';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import TreeItem from '@mui/lab/TreeItem';
 
 function generateDataForTreeView (parent, data) {
@@ -55,9 +55,17 @@ export default function EmployeeHierarchy({ data: employeeData }) {
     return (
         <TreeView
             aria-label="rich object"
-            defaultCollapseIcon={<ExpandMoreIcon />}
             defaultExpanded={['root']}
-            defaultExpandIcon={<ChevronRightIcon />}
+            defaultExpandIcon={
+                <AddCircleOutlineIcon
+                  sx={{ color: "rgb(12, 160, 169)", fontSize: "2rem" }}
+                />
+              }
+              defaultCollapseIcon={
+                <RemoveCircleOutlineIcon
+                  sx={{ color: "rgb(12, 160, 180)", fontSize: "2rem" }}
+                />
+              }
         >
             {renderTree(generateDataForTreeView("root", childEmployees)[0])}
         </TreeView>
